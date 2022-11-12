@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Time {
+public class Time implements Comparable<Object> {
 
     public Time(String nomeTime, String nomeSelecao, String grupo) {
         this.nomeTime = nomeTime;
@@ -49,5 +49,15 @@ public class Time {
 
     public void setListJogadores(List<Jogador> listJogadores) {
         this.listJogadores = listJogadores;
+    }
+
+    @Override
+    public int compareTo(Object arg0) {
+        return this.nomeTime.compareTo(((Time) arg0).getNomeTime());
+    }
+
+    @Override
+    public String toString() {
+        return this.nomeTime + " - " + this.nomeSelecao + ": " + this.listJogadores;
     }
 }

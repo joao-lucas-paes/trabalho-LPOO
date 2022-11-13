@@ -1,4 +1,4 @@
-package model;
+package com.lpoo.project.model;
 
 public abstract class Pessoa implements Verificavel {
     

@@ -1,4 +1,4 @@
-package model;
+package com.lpoo.project.model;
 
 import java.util.ArrayList;
 import java.util.List;

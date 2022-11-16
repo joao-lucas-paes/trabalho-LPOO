@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import com.lpoo.project.view.NumField?>
+<?import javafx.scene.control.Button?>
+
+<VBox id="main" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lpoo.project.controller.CrtTeam" stylesheets="@createTime.css">
+    <children>
+        <GridPane alignment="CENTER">
+            <TextField fx:id="time" promptText="Time" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="selecao" promptText="Seleção" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <NumField fx:id="grupo" promptText="Grupo" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <Button fx:id="submit" text="Criar" onAction="#create" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Button fx:id="cancel" text="Fechar" onAction="#close" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </GridPane>
+        </GridPane>
+    </children>
+</VBox>

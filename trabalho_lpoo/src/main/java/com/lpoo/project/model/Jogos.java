@@ -12,6 +12,7 @@ public class Jogos {
 
     private String Time1xTime2;
     private int golsTime1, golsTime2;
+    private Time time1, time2;
     private List<Jogador> gols;
 
     public String getTime1xTime2() {
@@ -39,13 +40,16 @@ public class Jogos {
         this.gols = gols;
     }
     
-    int GerarResultados() {
+    void GerarResultados() {
         if(this.golsTime1 > this.golsTime2) {
-            return 1;
+            time1.vitoria();
+            time2.derota();
         } else if(this.golsTime1 < this.golsTime2) {
-            return -1;
+            time2.vitoria();
+            time1.derota();
         } else {
-            return 0;
+            time1.empate();
+            time2.empate();
         }
     }
 

@@ -6,17 +6,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.ScrollPane?>
 
-<VBox id="main" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lpoo.project.controller.Evnts" stylesheets="@primary.css">
+<VBox id="main" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lpoo.project.controller.Evnts" stylesheets="@primary.css" minWidth="100.0" minHeight="100.0">
    <children>
       <ScrollPane id="scroll" minWidth="100.0" minHeight="100.0">
          <GridPane fx:id="screen" minWidth="100.0" minHeight="100.0">
             <Button fx:id="primaryButton" text="+" onAction="#btnCreate" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Button fx:id="TeamButton" text="Time" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Button fx:id="TeamButton" text="Time" onAction="#btnCreateTeam" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
             <Button fx:id="SyncButton" text="Sync" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
          </GridPane>
       </ScrollPane>
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
 </VBox>

@@ -7,13 +7,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-/**
- * JavaFX App
- */
+import com.lpoo.project.model.Grupo;
+import com.lpoo.project.model.Time;
+
 public class App extends Application {
 
     private static Scene scene;
+
+    static public ArrayList<Time> UnsignedTeam = new ArrayList<Time>();
+    static public ArrayList<Grupo> listGroup = new ArrayList<Grupo>();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -26,7 +30,7 @@ public class App extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         
         return fxmlLoader.load();

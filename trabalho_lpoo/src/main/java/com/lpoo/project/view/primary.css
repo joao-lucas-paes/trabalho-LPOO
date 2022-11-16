@@ -19,6 +19,18 @@
     -fx-border-insets: 5px;
 }
 
+#primaryButton:hover {
+    -fx-background-color: #f8ff21;
+}
+
+#TeamButton:hover {
+    -fx-background-color: #22ff22;
+}
+
+#SyncButton:hover {
+    -fx-background-color: #1e6cfe;
+}
+
 #primaryButton:pressed {
     -fx-background-color: #828610;
 }
@@ -48,7 +60,8 @@
 .group {
     -fx-border-color: black ;
     -fx-border-width: 1;
-    -fx-background-radius: 5,5,5,5;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
     -fx-padding: 5 5 5 5;
     -fx-margin: 2 2 2 2;
     -fx-border-insets: 5px;

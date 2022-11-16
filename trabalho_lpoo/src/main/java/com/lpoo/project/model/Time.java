@@ -14,6 +14,24 @@ public class Time implements Comparable<Object> {
 
     private String nomeTime, nomeSelecao, grupo;
     private List<Jogador> listJogadores;
+    private int j = 0, p = 0, v = 0, d = 0, e = 0;
+
+    protected void vitoria() {
+        j++;
+        p += 3;
+        v++;
+    }
+
+    protected void empate() {
+        j++;
+        p++;
+        e++;
+    }
+
+    protected void derota() {
+        j++;
+        d++;
+    }
     
     void add(Jogador j) {
         this.listJogadores.add(j);
@@ -59,5 +77,25 @@ public class Time implements Comparable<Object> {
     @Override
     public String toString() {
         return this.nomeTime + " - " + this.nomeSelecao + ": " + this.listJogadores;
+    }
+
+    public int getJ() {
+        return j;
+    }
+
+    public int getP() {
+        return p;
+    }
+
+    public int getV() {
+        return v;
+    }
+
+    public int getD() {
+        return d;
+    }
+
+    public int getE() {
+        return e;
     }
 }

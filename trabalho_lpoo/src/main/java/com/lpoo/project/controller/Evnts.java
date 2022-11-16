@@ -1,20 +1,23 @@
 package com.lpoo.project.controller;
 
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import com.lpoo.project.model.Grupo;
+import com.lpoo.project.model.Time;
+import com.lpoo.project.view.App;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.stage.Popup;
 
 public class Evnts implements Initializable {
     @FXML 
@@ -28,6 +31,8 @@ public class Evnts implements Initializable {
 
     @FXML
     private ResourceBundle resources;
+
+    private Popup popup = new Popup();
 
     private int col = 0, lin = 1;
 
@@ -45,6 +50,8 @@ public class Evnts implements Initializable {
             this.lin++; 
             this.col = 0;
         }
+
+        App.listGroup.add(new Grupo(new ArrayList<Time>()));
     }
 
     private GridPane createTbl() {
@@ -64,6 +71,19 @@ public class Evnts implements Initializable {
         }
 
         return tableView;
+    }
+
+    @FXML
+    public void btnCreateTeam() {
+        Dialog dialog = new Dialog<Object>();
+        
+        try {
+            dialog.setGraphic(App.loadFXML("createTime"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        dialog.show();
     }
 
     public Evnts(){}

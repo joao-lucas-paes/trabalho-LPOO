@@ -49,14 +49,18 @@ public class CrtTeam implements Initializable {
 
     @FXML
     public void create() {
+        // da get nos valores dos inputs
         String time = this.time.getText();
         String selecao = this.selecao.getText();
         String numGrupo = this.grupo.getText();
+
+        // verifica se há alguma coisa nos input e valida
         if(isValid(time) && isValid(selecao)) {
+            // verifica se tem algo ou se o algo q tem e valido
             if(numGrupo == "" || isValid(Integer.parseInt(numGrupo))) {
-                if(numGrupo == "")
+                if(numGrupo == "") // se nada foi inserido no numField
                     App.UnsignedTeam.add(new Time(time, selecao, "N/A"));
-                else {
+                else { // caso alguma coisa tenha sido inserido no NumField
                     App.listGroup.get(Integer.parseInt(numGrupo) - 1).add(new Time(time, selecao, "N/A"));
                     Evnts.att();
                 }

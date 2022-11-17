@@ -53,12 +53,13 @@ public class CrtTeam implements Initializable {
         String selecao = this.selecao.getText();
         String numGrupo = this.grupo.getText();
         if(isValid(time) && isValid(selecao)) {
-            int intNumGrupo = Integer.parseInt(numGrupo);
-            if(numGrupo == "" || isValid(intNumGrupo)) {
+            if(numGrupo == "" || isValid(Integer.parseInt(numGrupo))) {
                 if(numGrupo == "")
                     App.UnsignedTeam.add(new Time(time, selecao, "N/A"));
-                else
-                    App.listGroup.get(intNumGrupo - 1).add(new Time(time, selecao, "N/A"));
+                else {
+                    App.listGroup.get(Integer.parseInt(numGrupo) - 1).add(new Time(time, selecao, "N/A"));
+                    Evnts.att();
+                }
                 this.close();
             }
         }

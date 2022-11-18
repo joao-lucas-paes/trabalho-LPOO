@@ -27,12 +27,13 @@
                     <TextField fx:id="jogador" promptText="nome" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                     <NumField fx:id="numero" promptText="Numero" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                     <TextField fx:id="cpf" promptText="CPF" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-                    <TextField fx:id="rua" promptText="Rua" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-                    <TextField fx:id="bairro" promptText="Bairro" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-                    <TextField fx:id="cidade" promptText="Cidade" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-                    <TextField fx:id="numLog" promptText="num. Logradouro" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-                    <TextField fx:id="cep" promptText="CEP" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
-                    <Button fx:id="submit" text="Criar Jogador" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+                    <TextField fx:id="celular" promptText="Telefone" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="rua" promptText="Rua" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <TextField fx:id="bairro" promptText="Bairro" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="cidade" promptText="Cidade" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <NumField fx:id="numLog" promptText="num. Logradouro" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                    <TextField fx:id="cep" promptText="CEP" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+                    <Button fx:id="submit" text="Criar Jogador" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
                 </GridPane>
                 <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <TableView fx:id="tblView" GridPane.columnIndex="0" GridPane.rowIndex="0">

@@ -3,14 +3,15 @@ package com.lpoo.project.model;
 import java.util.List;
 
 public class Jogos {
-    public Jogos(String time1xTime2, int golsTime1, int golsTime2, List<Jogador> gols) {
+    public Jogos(String time1xTime2, int golsTime1, int golsTime2, List<Jogador> gols, String local) {
         Time1xTime2 = time1xTime2;
         this.golsTime1 = golsTime1;
         this.golsTime2 = golsTime2;
         this.gols = gols;
+        this.local = local;
     }
 
-    private String Time1xTime2;
+    private String Time1xTime2, local;
     private int golsTime1, golsTime2;
     private Time time1, time2;
     private List<Jogador> gols;

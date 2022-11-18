@@ -46,11 +46,11 @@ public class Sync implements Initializable {
     }
 
     @FXML
-    private void initialize(){}
+    private void initialize() {}
 
     // verifica e sincroniza
     @FXML
-    public void create(){
+    public void create() {
         try {
             int num = Integer.parseInt(grupo.getText()); // tenta transformar o numField em um numero
             int unTime = time.getSelectionModel().getSelectedIndex(); // da get do valor do time
@@ -67,8 +67,9 @@ public class Sync implements Initializable {
     }
     
     // fecha o popup
-    public void close(){
+    public void close() {
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
     }
 }
+

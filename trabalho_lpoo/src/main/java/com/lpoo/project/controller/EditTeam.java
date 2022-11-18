@@ -1,6 +1,7 @@
 package com.lpoo.project.controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.lpoo.project.model.Jogador;
@@ -41,11 +42,30 @@ public class EditTeam implements Initializable {
     @FXML
     private TableView tblView;
 
-    public EditTeam(){}
+    @FXML
+    NumField numero, numLog;
+
+    @FXML
+    TextField jogador, cpf, rua, bairro, cidade, cep;
+
+    private Time t;
 
     @FXML
     public void create() {
-        
+        String j = jogador.getText(), c = cpf.getText(), r = rua.getText(), b = bairro.getText(), cd = cidade.getText(), cep = cidade.getText(), nlog = numLog.getText(), n = numero.getText();
+        if(isValid(j) && isValid(c) && isValid(r) && isValid(b) && isValid(cd) && isValid(nlog) && isValid(n)) {
+            if(isValid(cep)) {
+                List<Jogador> a = App.listGroup.get(App.tempI).get(App.tempJ).getListJogadores();
+                a.add(new Jogador(j, c, null,n, Integer.parseInt(n), t));
+                App.listGroup.get(App.tempI).get(App.tempJ).setListJogadores(null);
+            } else {
+
+            }
+        }
+    }
+
+    private boolean isValid(String a) {
+        return a.trim() != "";
     }
 
     @FXML
@@ -75,15 +95,7 @@ public class EditTeam implements Initializable {
     @FXML
     private void initialize(){}
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        this.url = arg0;
-        this.resources = arg1;
-        Time t = App.listGroup.get(App.tempI).get(App.tempJ);
-        time.setText(t.getNomeTime());
-        selecao.setText(t.getNomeSelecao());
-        grupo.setText(Integer.toString(App.tempI + 1));
-
+    private void attTable() {
         for(int i = 0; i < t.getListJogadores().size(); i++) {
             Jogador j = t.getListJogadores().get(i);
             TextField[] jogadores = {
@@ -94,5 +106,16 @@ public class EditTeam implements Initializable {
             };
             tblView.getColumns().addAll(jogadores);
         }
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        this.url = arg0;
+        this.resources = arg1;
+        t = App.listGroup.get(App.tempI).get(App.tempJ);
+        time.setText(t.getNomeTime());
+        selecao.setText(t.getNomeSelecao());
+        grupo.setText(Integer.toString(App.tempI + 1));
+        attTable();
     }    
 }

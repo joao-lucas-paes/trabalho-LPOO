@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import com.lpoo.project.view.NumField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+
+<VBox id="main" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lpoo.project.controller.EditTeam" stylesheets="@editTime.css">
+    <children>
+        <GridPane alignment="CENTER">
+            <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <TextField fx:id="time" promptText="Time" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="selecao" promptText="Seleção" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <NumField fx:id="grupo" promptText="Grupo" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <Button fx:id="submit" text="Editar" onAction="#editTime" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Button fx:id="cancel" text="Fechar" onAction="#close" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                </GridPane>
+            </GridPane>
+            <GridPane alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="0"> Criar Jogador </Label>
+                    <TextField fx:id="jogador" promptText="nome" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <NumField fx:id="numero" promptText="Numero" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="cpf" promptText="CPF" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="rua" promptText="Rua" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="bairro" promptText="Bairro" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <TextField fx:id="cidade" promptText="Cidade" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="numLog" promptText="num. Logradouro" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <TextField fx:id="cep" promptText="CEP" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                    <Button fx:id="submit" text="Criar Jogador" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+                </GridPane>
+                <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <TableView fx:id="tblView" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <columns>
+                            <TableColumn text="Jogador"></TableColumn>
+                            <TableColumn text="Numero"></TableColumn>
+                            <TableColumn text="Celular"></TableColumn>
+                            <TableColumn text="Endereço"></TableColumn>
+                            <TableColumn text="CPF"></TableColumn>
+                        </columns>
+                    </TableView>
+                </GridPane>
+            </GridPane>
+        </GridPane>
+    </children>
+</VBox>

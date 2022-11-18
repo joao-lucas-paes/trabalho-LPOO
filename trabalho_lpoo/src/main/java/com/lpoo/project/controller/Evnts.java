@@ -10,14 +10,19 @@ import com.lpoo.project.model.Time;
 import com.lpoo.project.view.App;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Evnts implements Initializable {
     @FXML 
@@ -59,6 +64,7 @@ public class Evnts implements Initializable {
                 Button btn = new Button("..."); // botao de utilidades
                 Button btnRm = new Button("x"); // botao para remover
 
+                btn.setId(i + "-" + j);
                 btnRm.setId(i + "-" + j); // setta o id baseado na posicao dele no arraylist global
 
                 GridPane.setColumnIndex(btn, 0); // setta o index correto da coluna para o btn
@@ -81,9 +87,19 @@ public class Evnts implements Initializable {
                 javafx.event.EventHandler<ActionEvent> event = new javafx.event.EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
                         try {
-                            App.loadFXML("");
+                            Dialog<EditTeam> dialog = new Dialog<EditTeam>();
+
+
+                            String arr[] = ((Button) e.getTarget()).getId().split("-"); // obtem o i e o j colocado no id 
+                            int i = Integer.parseInt(arr[0]); // transforma em inteiros
+                            int j = Integer.parseInt(arr[1]); // mesma coisa da linha acima
+                            App.tempI = i;
+                            App.tempJ = j;
+                            
+                            dialog.setGraphic(App.loadFXML("editTeam"));
+
+                            dialog.showAndWait();
                         } catch (IOException e1) {
-                           
                             e1.printStackTrace();
                         }
                     }
@@ -153,16 +169,16 @@ public class Evnts implements Initializable {
 
     @FXML
     public void btnCreateTeam() {
-        this.open("createTime");
+        open("createTime");
     }
 
     @FXML
     public void btnSync() {
-        this.open("toSync");
+        open("toSync");
     }
 
     // cria popups baseados no "value" abrindo um FXML
-    public void open(String value) {
+    public static void open(String value) {
         Dialog dialog = new Dialog<Object>();
         
         try {

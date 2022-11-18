@@ -18,6 +18,7 @@ public class App extends Application {
 
     static public ArrayList<Time> UnsignedTeam = new ArrayList<Time>();
     static public ArrayList<Grupo> listGroup = new ArrayList<Grupo>();
+    static public int tempI, tempJ; // metodo de comunicao global, visto que ao abrir um DialogBox eu nao tenho um meio de comunicacao preparada pela lib previamente
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,6 +34,14 @@ public class App extends Application {
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         
+        return fxmlLoader.load();
+    }
+
+    public static Parent loadFXML(String fxml, Object o) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        
+        fxmlLoader.setController(fxmlLoader);
+
         return fxmlLoader.load();
     }
 

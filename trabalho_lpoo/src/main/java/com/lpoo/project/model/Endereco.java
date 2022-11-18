@@ -29,6 +29,7 @@ public class Endereco {
         this.bairro = bairro;
         this.cidade = cidade;
         this.numero = numero;
+        this.cep = "N/Informado";
     }
 
     private String rua, bairro, cidade, cep;
@@ -72,5 +73,10 @@ public class Endereco {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public String toString() {
+        return this.cidade + ": Rua " + this.rua + ", n" + this.numero + " - " + this.bairro + "; CEP:" + this.cep;
     }
 }

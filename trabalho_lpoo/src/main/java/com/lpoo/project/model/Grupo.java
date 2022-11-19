@@ -28,7 +28,7 @@ public class Grupo {
     }
 
     public Label[] generateSpecifyAttr(int i) {
-       Label[] value = {new Label(this.get(i).getNomeTime()), new Label(this.get(i).getNomeSelecao()), new Label(Integer.toString(this.get(i).getP())), new Label(Integer.toString(this.get(i).getJ())), new Label(Integer.toString(this.get(i).getD())), new Label(Integer.toString(this.get(i).getE()))};
+       Label[] value = {new Label(this.get(i).getNomeTime()), new Label(this.get(i).getNomeSelecao()), new Label(Integer.toString(this.get(i).getP())), new Label(Integer.toString(this.get(i).getJ())), new Label(Integer.toString(this.get(i).getV())), new Label(Integer.toString(this.get(i).getD())), new Label(Integer.toString(this.get(i).getE()))};
         return value;
     }
 

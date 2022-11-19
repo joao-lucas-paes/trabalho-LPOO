@@ -62,21 +62,15 @@ public class Evnts implements Initializable {
                 }
                 GridPane grid = new GridPane(); // grid para que os botoes fiquem no mesmo espaco
                 Button btn = new Button("..."); // botao de utilidades
-                Button btnRm = new Button("x"); // botao para remover
-
+                
                 btn.setId(i + "-" + j);
-                btnRm.setId(i + "-" + j); // setta o id baseado na posicao dele no arraylist global
-
+                
                 GridPane.setColumnIndex(btn, 0); // setta o index correto da coluna para o btn
                 GridPane.setRowIndex(btn, 0); // setta o index correto da linha para o btn
 
                 grid.getChildren().add(btn); // adiciona o botao na interface
 
-                GridPane.setColumnIndex(btnRm, 1); // setta o index correto da coluna para o btnRm
-                GridPane.setRowIndex(btnRm, 0); // setta o index correto da coluna para o btnRm
-
-                grid.getChildren().add(btnRm); // adiciona o botao de remover na interface
-
+                
                 // mesmo processo descrito acima
                 GridPane.setColumnIndex(grid, toFill.length);
                 GridPane.setRowIndex(grid, j + 1);
@@ -104,21 +98,9 @@ public class Evnts implements Initializable {
                         }
                     }
                 };
-                // cria uma classe anonymous inner type para o evento de clique para remover a selecao
-                javafx.event.EventHandler<ActionEvent> rm = new javafx.event.EventHandler<ActionEvent>() {
-
-                    public void handle(ActionEvent e) {
-                        String arr[] = ((Button) e.getTarget()).getId().split("-"); // obtem o i e o j colocado no id 
-                        int i = Integer.parseInt(arr[0]); // transforma em inteiros
-                        int j = Integer.parseInt(arr[1]); // mesma coisa da linha acima
-                        App.listGroup.get(i).rm(j); // remove do grupo
-                        Evnts.att(); // atualiza a GUI
-                    }
-                };
 
                 // setta os eventos
                 btn.setOnAction(event); 
-                btnRm.setOnAction(rm);
             }
         }
     }
@@ -155,7 +137,7 @@ public class Evnts implements Initializable {
 
     // insere o topo da tabela "grupo" dentro de um gridPane
     static private void gInto(GridPane tableView) {
-        Node[] l = {new Label(" Time "), new Label(" Seleção "), new Label(" P "), new Label(" J "), new Label(" D "), new Label(" E "), new Label(" Visualizar Time / Editar ")};
+        Node[] l = {new Label(" Time "), new Label(" Seleção "), new Label(" P "), new Label(" J "), new Label(" V "), new Label(" D "), new Label(" E "), new Label(" Visualizar Time / Editar ")};
 
         for(int i = 0; i < l.length; i++) {
             GridPane.setColumnIndex(l[i], i);

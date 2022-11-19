@@ -4,5 +4,6 @@ module com.lpoo.project {
 
     opens com.lpoo.project.view to javafx.fxml;
     opens com.lpoo.project.controller to javafx.fxml;
+    opens com.lpoo.project.model to javafx.base;
     exports com.lpoo.project.view;
 }

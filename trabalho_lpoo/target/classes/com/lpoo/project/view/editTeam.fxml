@@ -28,21 +28,27 @@
                     <NumField fx:id="numero" promptText="Numero" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                     <TextField fx:id="cpf" promptText="CPF" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
                     <TextField fx:id="celular" promptText="Telefone" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-                    <TextField fx:id="rua" promptText="Rua" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-                    <TextField fx:id="bairro" promptText="Bairro" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-                    <TextField fx:id="cidade" promptText="Cidade" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-                    <NumField fx:id="numLog" promptText="num. Logradouro" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
-                    <TextField fx:id="cep" promptText="CEP" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
-                    <Button fx:id="submit" text="Criar Jogador" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+                    <TextField fx:id="data" promptText="Data de nascimento" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <TextField fx:id="rua" promptText="Rua" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="bairro" promptText="Bairro" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <TextField fx:id="cidade" promptText="Cidade" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                    <NumField fx:id="numLog" promptText="num. Logradouro" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+                    <TextField fx:id="cep" promptText="CEP" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+                    <Button fx:id="submit" text="Criar Jogador" onAction="#create" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
                 </GridPane>
                 <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                    <TableView fx:id="tblView" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <TableView prefWidth="700" fx:id="tblView" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
                         <columns>
-                            <TableColumn text="Jogador"></TableColumn>
-                            <TableColumn text="Numero"></TableColumn>
-                            <TableColumn text="Celular"></TableColumn>
-                            <TableColumn text="Endereço"></TableColumn>
-                            <TableColumn text="CPF"></TableColumn>
+                            <TableColumn fx:id="tJogador" text="Jogador"></TableColumn>
+                            <TableColumn fx:id="tNum" text="Numero"></TableColumn>
+                            <TableColumn fx:id="tCel" text="Celular"></TableColumn>
+                            <TableColumn fx:id="tCPF" text="CPF"></TableColumn>
+                            <TableColumn fx:id="tData" text="Data de Nascimento"></TableColumn>
+                            <TableColumn fx:id="tEnd" text="Endereço"></TableColumn>
+                            <TableColumn fx:id="updt" text="atualizar"></TableColumn>
                         </columns>
                     </TableView>
                 </GridPane>

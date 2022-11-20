@@ -1,7 +1,6 @@
 package com.lpoo.project.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Time implements Comparable<Object> {
 
@@ -13,7 +12,7 @@ public class Time implements Comparable<Object> {
     }
 
     private String nomeTime, nomeSelecao, grupo;
-    private List<Jogador> listJogadores;
+    private ArrayList<Jogador> listJogadores;
     private int j = 0, p = 0, v = 0, d = 0, e = 0;
 
     protected void vitoria() {
@@ -33,7 +32,7 @@ public class Time implements Comparable<Object> {
         d++;
     }
     
-    void add(Jogador j) {
+    public void addComponent(Jogador j) {
         this.listJogadores.add(j);
     }
 
@@ -61,12 +60,12 @@ public class Time implements Comparable<Object> {
         this.grupo = grupo;
     }
 
-    public List<Jogador> getListJogadores() {
+    public ArrayList<Jogador> getListJogadores() {
         return listJogadores;
     }
 
-    public void setListJogadores(List<Jogador> listJogadores) {
-        this.listJogadores = listJogadores;
+    public void setListJogadores(ArrayList<Jogador> jogador) {
+        this.listJogadores = jogador;
     }
 
     @Override

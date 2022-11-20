@@ -1,5 +1,8 @@
 package com.lpoo.project.model;
 
+import com.lpoo.project.controller.EditTeam;
+
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 
 public class Jogador extends Pessoa {
@@ -14,32 +17,21 @@ public class Jogador extends Pessoa {
         this.num = num;
     }
 
-    private Button updt;
 
-    public Button getUpdt() {
-        return updt;
-    }
-
-    public void setUpdt(Button updt) {
-        this.updt = updt;
-    }
-
-    public Jogador(String nome, String cpf, String rua, String bairro, String cidade, int numero , String celular, String dataNascimento, int num, Time time, Button updt) {
+    public Jogador(String nome, String cpf, String rua, String bairro, String cidade, int numero , String celular, String dataNascimento, int num, Time time) {
         super(nome, cpf, new Endereco(rua, bairro, cidade, numero), celular, dataNascimento);
 
         this.num = num;
-        this.updt = updt;
 
-        time.add(this);
+        time.addComponent(this);
     }
 
-    public Jogador(String nome, String cpf, String rua, String bairro, String cidade, String cep, int numero , String celular, String dataNascimento, int num, Time time, Button updt) {
+    public Jogador(String nome, String cpf, String rua, String bairro, String cidade, String cep, int numero , String celular, String dataNascimento, int num, Time time) {
         super(nome, cpf, new Endereco(rua, bairro, cidade, cep, numero), celular, dataNascimento);
 
         this.num = num;
-        this.updt = updt;
 
-        time.add(this);
+        time.addComponent(this);
     }
 
     @Override

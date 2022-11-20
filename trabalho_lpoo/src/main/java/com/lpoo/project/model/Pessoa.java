@@ -62,8 +62,8 @@ public abstract class Pessoa implements Verificavel {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setEndereco(String endereco) {
+        this.endereco.setEndereco(endereco);
     }
 
 }

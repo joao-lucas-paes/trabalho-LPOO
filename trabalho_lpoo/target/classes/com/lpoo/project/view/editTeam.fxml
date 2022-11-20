@@ -42,13 +42,16 @@
                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                         </columnResizePolicy>
                         <columns>
-                            <TableColumn fx:id="tJogador" text="Jogador"></TableColumn>
-                            <TableColumn fx:id="tNum" text="Numero"></TableColumn>
-                            <TableColumn fx:id="tCel" text="Celular"></TableColumn>
-                            <TableColumn fx:id="tCPF" text="CPF"></TableColumn>
-                            <TableColumn fx:id="tData" text="Data de Nascimento"></TableColumn>
-                            <TableColumn fx:id="tEnd" text="Endereço"></TableColumn>
-                            <TableColumn fx:id="updt" text="atualizar"></TableColumn>
+                            <TableColumn fx:id="tJogador" text="Jogador"/>
+                            <TableColumn fx:id="tNum" text="Numero"/>
+                            <TableColumn fx:id="tCel" text="Celular"/>
+                            <TableColumn fx:id="tCPF" text="CPF"/>
+                            <TableColumn fx:id="tData" text="Data de Nascimento"/>
+                            <TableColumn fx:id="tRua" text="Rua"/>
+                            <TableColumn fx:id="tBairro" text="Bairro"/>
+                            <TableColumn fx:id="tCidade" text="Cidade"/>
+                            <TableColumn fx:id="tNumLog" text="N.Logradouro"/>
+                            <TableColumn fx:id="tCep" text="CEP"/>
                         </columns>
                     </TableView>
                 </GridPane>

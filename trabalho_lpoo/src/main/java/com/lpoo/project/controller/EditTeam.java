@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.lpoo.project.model.Endereco;
 import com.lpoo.project.model.Jogador;
 import com.lpoo.project.model.Time;
 import com.lpoo.project.view.App;
@@ -15,9 +14,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.util.converter.IntegerStringConverter;
+import javafx.beans.property.ReadOnlyIntegerWrapper;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -48,7 +50,7 @@ public class EditTeam implements Initializable {
     private TableView<Jogador> tblView;
 
     @FXML
-    private TableColumn<Jogador, String> tJogador, tCel, tCPF, tEnd, tData;
+    private TableColumn<Jogador, String> tJogador, tCel, tCPF, tData, tBairro, tCidade, tRua, tCep;
 
     @FXML
     private TableColumn<Jogador, Integer> tNum, tNumLog;
@@ -59,26 +61,22 @@ public class EditTeam implements Initializable {
     @FXML
     private TextField jogador, cpf, rua, bairro, cidade, cep, data;
 
-    @FXML
-    private TableColumn<Jogador, Button> updt;
-
     private Time t;
 
     @FXML
     public void create() {
         String j = jogador.getText(), c = cpf.getText(), r = rua.getText(), b = bairro.getText(), cd = cidade.getText(), cep = cidade.getText(), nlog = numLog.getText(), n = numero.getText(), d = data.getText();
+
         if(isValid(j) && isValid(c) && isValid(r) && isValid(b) && isValid(cd) && isValid(nlog) && isValid(n) && isValid(d)) {
             // validado as entradas
             if(isValid(cep)) {
                 // validado o cep
-                List<Jogador> a = App.listGroup.get(App.tempI).get(App.tempJ).getListJogadores();
-                a.add(new Jogador(j, c, r, b, cd, cep, Integer.parseInt(nlog), n, d, Integer.parseInt(n), t, new Button("atualizar dados")));
-                App.listGroup.get(App.tempI).get(App.tempJ).setListJogadores(a);
+                new Jogador(j, c, r, b, cd, cep, Integer.parseInt(nlog), n, d, Integer.parseInt(n), t);
+
             } else {
                 // caso nao inserido o cep
-                List<Jogador> a = App.listGroup.get(App.tempI).get(App.tempJ).getListJogadores();
-                a.add(new Jogador(j, c, r, b, cd, Integer.parseInt(nlog), n,  d, Integer.parseInt(n), t, new Button("atualizar dados")));
-                App.listGroup.get(App.tempI).get(App.tempJ).setListJogadores(a);
+               new Jogador(j, c, r, b, cd, Integer.parseInt(nlog), n, d, Integer.parseInt(n), t);
+                
             }
             this.attTable();
         }
@@ -116,22 +114,56 @@ public class EditTeam implements Initializable {
     private void initialize(){}
 
     private void attTable() {
-        ObservableList<Jogador> dataTable = FXCollections.observableArrayList();
+
+        tblView.getItems().clear();
         
-        for(int i = 0; i < t.getListJogadores().size(); i++)
-            dataTable.add(t.getListJogadores().get(i));
-        
-        tblView.setItems(dataTable);
+        for(int i = 0; i < t.getListJogadores().size(); i++){
+            Jogador j = t.getListJogadores().get(i);
+            tblView.getItems().add(null);
+            tblView.getItems().set(i, j);
+        }
+    
     }
 
     private void initCols() {
         tJogador.setCellValueFactory(new PropertyValueFactory<Jogador, String>("nome"));
         tNum.setCellValueFactory(new PropertyValueFactory<Jogador, Integer>("num"));
-        tEnd.setCellValueFactory(new PropertyValueFactory<Jogador, String>("endereco"));
         tCel.setCellValueFactory(new PropertyValueFactory<Jogador, String>("celular"));
         tCPF.setCellValueFactory(new PropertyValueFactory<Jogador, String>("cpf"));
         tData.setCellValueFactory(new PropertyValueFactory<Jogador, String>("dataNascimento"));
-        updt.setCellValueFactory(new PropertyValueFactory<Jogador, Button>("updt"));
+        tBairro.setCellValueFactory( data -> new ReadOnlyStringWrapper(data.getValue().getEndereco().getBairro()));
+        tCep.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getEndereco().getCep()));
+        tCidade.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getEndereco().getCidade()));
+        tNumLog.setCellValueFactory(data -> new ReadOnlyIntegerWrapper(data.getValue().getEndereco().getNumero()).asObject());
+        tRua.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getEndereco().getRua()));
+
+        this.edtCols();
+    }
+
+    private void edtCols() {
+        tJogador.setCellFactory(TextFieldTableCell.forTableColumn());
+        tNum.setCellFactory(TextFieldTableCell.<Jogador, Integer>forTableColumn(new IntegerStringConverter()));
+        tCel.setCellFactory(TextFieldTableCell.forTableColumn());
+        tCPF.setCellFactory(TextFieldTableCell.forTableColumn());
+        tData.setCellFactory(TextFieldTableCell.forTableColumn());
+        tBairro.setCellFactory(TextFieldTableCell.forTableColumn());
+        tCep.setCellFactory(TextFieldTableCell.forTableColumn());
+        tCidade.setCellFactory(TextFieldTableCell.forTableColumn());
+        tNumLog.setCellFactory(TextFieldTableCell.<Jogador, Integer>forTableColumn(new IntegerStringConverter()));
+        tRua.setCellFactory(TextFieldTableCell.forTableColumn());
+        
+        tJogador.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setNome(e.getNewValue()));
+        tNum.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setNum(e.getNewValue()));
+        tCel.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setCelular(e.getNewValue()));
+        tCPF.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setCpf(e.getNewValue()));
+        tData.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setDataNascimento(e.getNewValue()));
+        tBairro.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).getEndereco().setBairro(e.getNewValue()));
+        tCep.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).getEndereco().setCep(e.getNewValue()));
+        tCidade.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).getEndereco().setCidade(e.getNewValue()));
+        tNumLog.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).getEndereco().setNumero(e.getNewValue()));
+        tRua.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).getEndereco().setRua(e.getNewValue()));
+
+        tblView.setEditable(true);
     }
 
     @Override

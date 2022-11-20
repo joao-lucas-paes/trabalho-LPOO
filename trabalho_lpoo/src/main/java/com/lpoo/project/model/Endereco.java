@@ -75,8 +75,25 @@ public class Endereco {
         this.numero = numero;
     }
 
+    public void setEndereco(String a) {
+        String[] values = a.split(" - ");
+        String[] newValue =  {values[0], values[1].split(", ")[0], values[1].split(", ")[1], values[2], values[3]};
+
+        try {
+            this.setNumero(Integer.parseInt(newValue[2]));
+        } catch (Exception e) {
+            System.out.println("Error, unable to set new value to \"Endereco.numero\"");
+        } finally {
+            this.setCidade(newValue[0]);
+            this.setRua(newValue[1]);
+            this.setBairro(newValue[3]);
+            this.setCidade(newValue[4]);
+        }
+
+    }
+
     @Override
     public String toString() {
-        return this.cidade + ": Rua " + this.rua + ", n" + this.numero + " - " + this.bairro + "; CEP:" + this.cep;
+        return this.cidade + " - " + this.rua + ", " + this.numero + " - " + this.bairro + " - " + this.cep;
     }
 }

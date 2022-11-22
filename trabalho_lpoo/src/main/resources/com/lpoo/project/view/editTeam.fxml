@@ -47,7 +47,7 @@
                             <TableColumn fx:id="tCel" text="Celular"/>
                             <TableColumn fx:id="tCPF" text="CPF"/>
                             <TableColumn fx:id="tData" text="Data de Nascimento"/>
-                            <TableColumn fx:id="tRua" promptText="Rua"/>
+                            <TableColumn fx:id="tRua" text="Rua"/>
                             <TableColumn fx:id="tBairro" text="Bairro"/>
                             <TableColumn fx:id="tCidade" text="Cidade"/>
                             <TableColumn fx:id="tNumLog" text="N.Logradouro"/>

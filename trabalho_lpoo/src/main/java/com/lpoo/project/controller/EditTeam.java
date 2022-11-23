@@ -9,6 +9,7 @@ import com.lpoo.project.view.App;
 import com.lpoo.project.view.NumField;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,6 +23,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class EditTeam implements Initializable {
+
+    @FXML
+    private ChoiceBox<Time> time2;
+
+    @FXML
+    private TextField local, gtime1, gtime2;
 
     @FXML
     private TextField time;
@@ -78,6 +85,11 @@ public class EditTeam implements Initializable {
             }
             this.attTable();
         }
+    }
+
+    @FXML
+    public void createMatch() {
+
     }
 
     private boolean isValid(String a) {
@@ -164,6 +176,14 @@ public class EditTeam implements Initializable {
         tblView.setEditable(true);
     }
 
+    private void addTeams() {
+        for(int i = 0; i < App.listGroup.size(); i++) {
+            for(int j = 0; j < App.listGroup.get(i).length(); j++)
+                if(App.listGroup.get(i).get(j) != t)
+                    time2.getItems().add(App.listGroup.get(i).get(j));
+        }
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         this.url = arg0;
@@ -175,5 +195,6 @@ public class EditTeam implements Initializable {
 
         initCols();
         attTable();
+        addTeams();
     }    
 }

@@ -60,12 +60,11 @@
             <GridPane alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="0">
                 <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <Label GridPane.columnIndex="0" GridPane.rowIndex="0"> Criar Partida </Label>
-                    <ChoiceBox fx:id="time1" text="time 1" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                    <ChoiceBox fx:id="time2" text="time 2" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <ChoiceBox fx:id="time2" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                     <TextField fx:id="local" promptText="Estádio" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-                    <TextField fx:id="gtime1" promptText="Gols-time 1" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
-                    <TextField fx:id="gtime2" promptText="Gols-time 2" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
-                    <Button fx:id="submit" text="Criar Jogo" onAction="#create" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+                    <TextField fx:id="gtime1" promptText="Gols-time 1" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="gtime2" promptText="Gols-time 2" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <Button fx:id="submit" text="Criar Jogo" onAction="#createMatch" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
                 </GridPane>
                 <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <TableView prefWidth="700" fx:id="tblViewJogos" GridPane.columnIndex="0" GridPane.rowIndex="0">

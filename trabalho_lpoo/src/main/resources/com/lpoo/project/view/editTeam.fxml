@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ChoiceBox?>
 
 <VBox id="main" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lpoo.project.controller.EditTeam" stylesheets="@editTime.css">
     <children>
@@ -52,6 +53,33 @@
                             <TableColumn fx:id="tCidade" text="Cidade"/>
                             <TableColumn fx:id="tNumLog" text="N.Logradouro"/>
                             <TableColumn fx:id="tCep" text="CEP"/>
+                        </columns>
+                    </TableView>
+                </GridPane>
+            </GridPane>
+            <GridPane alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label GridPane.columnIndex="0" GridPane.rowIndex="0"> Criar Partida </Label>
+                    <ChoiceBox fx:id="time1" text="time 1" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ChoiceBox fx:id="time2" text="time 2" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="local" promptText="Estádio" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="gtime1" promptText="Gols-time 1" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+                    <TextField fx:id="gtime2" promptText="Gols-time 2" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+                    <Button fx:id="submit" text="Criar Jogo" onAction="#create" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+                </GridPane>
+                <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <TableView prefWidth="700" fx:id="tblViewJogos" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="tLocal" text="Local"/>
+                            <TableColumn fx:id="tTime1" text="Time 1"/>
+                            <TableColumn fx:id="tTime2" text="Time 2"/>
+                            <TableColumn fx:id="tg1" text="gols time 1"/>
+                            <TableColumn fx:id="tg2" text="gols time 2"/>
+                            <TableColumn fx:id="qtdg1" text="Qtd gols time 1"/>
+                            <TableColumn fx:id="qtdg2" text="Qtd gols time 2"/>
                         </columns>
                     </TableView>
                 </GridPane>

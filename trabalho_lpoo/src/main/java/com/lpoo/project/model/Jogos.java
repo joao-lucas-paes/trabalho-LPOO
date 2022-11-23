@@ -16,6 +16,12 @@ public class Jogos {
     private Time time1, time2;
     private List<Jogador> gols;
 
+    public String getLocal() {
+        return local;
+    }
+    public void setLocal(String local) {
+        this.local = local;
+    }
     public String getTime1xTime2() {
         return Time1xTime2;
     }

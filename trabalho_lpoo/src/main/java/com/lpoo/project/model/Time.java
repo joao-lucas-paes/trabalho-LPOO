@@ -15,6 +15,26 @@ public class Time implements Comparable<Object> {
     private ArrayList<Jogador> listJogadores;
     private int j = 0, p = 0, v = 0, d = 0, e = 0;
 
+    public void setJ(int j) {
+        this.j = j;
+    }
+
+    public void setE(int e) {
+        this.e = e;
+    }
+
+    public void setD(int d) {
+        this.d = d;
+    }
+
+    public void setV(int v) {
+        this.v = v;
+    }
+
+    public void setP(int p) {
+        this.p = p;
+    }
+
     protected void vitoria() {
         j++;
         p += 3;

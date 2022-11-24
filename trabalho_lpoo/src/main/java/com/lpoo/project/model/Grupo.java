@@ -1,6 +1,7 @@
 package com.lpoo.project.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javafx.scene.control.Label;
 
@@ -16,7 +17,19 @@ public class Grupo {
     }
 
     public void sort() {
-        this.Times.sort(null);
+        Times.sort(new Comparator<Object>() {
+
+            @Override
+            public int compare(Object arg0, Object arg1) {
+                Time t1 = (Time) arg0, t2 = (Time) arg1;
+                if(t1.getP() > t2.getP())
+                    return -1;
+                else if(t1.getP() == t2.getP())
+                    return 0;
+                return 1;
+            }
+            
+        });
     }
 
     public ArrayList<Time> get() {

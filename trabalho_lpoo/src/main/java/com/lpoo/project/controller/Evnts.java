@@ -38,7 +38,7 @@ public class Evnts implements Initializable {
     /**
      * Essa funcao atualiza a interface dos grupos e adiciona os botoes e os eventos para cada um
      */
-    static void att() {
+    public static void att() {
         for(int i = 0; i < App.listGroup.size(); i++) {
             GridPane child = (GridPane) gp.getChildren().get(i + 3);
             child.getChildren().clear();

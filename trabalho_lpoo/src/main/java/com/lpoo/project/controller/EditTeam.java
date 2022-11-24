@@ -106,6 +106,7 @@ public class EditTeam implements Initializable {
         if(isValid(l) && ((isArrInt(g1) || g1.trim() == "") && (isArrInt(g2) && g2.trim() == ""))) {
             int[] arr1 = getArrInt(g1), arr2 = getArrInt(g2);
             Time t2 = time2.getValue();
+            System.out.println(t2);
             Jogador j1[] = t.get(arr1), j2[] = t2.get(arr2);
             ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
             
@@ -115,9 +116,9 @@ public class EditTeam implements Initializable {
             for(var j: j2) {
                 jogadores.add(j);
             }
-
-            App.matchs.add(new Jogos( t.getNomeTime() + "x" + t2.getNomeTime(), j1.length, j2.length, jogadores, l));
-
+            App.matchs.add(new Jogos( t.getNomeTime() + "x" + t2.getNomeTime(), j1.length, j2.length, jogadores, l, t, t2));
+            System.out.println("EditTeam.createMatch()");
+            attTableMatch();
         }
 
     }
@@ -227,14 +228,18 @@ public class EditTeam implements Initializable {
         tLocal.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setLocal(e.getNewValue()));
         tTime1.setOnEditCommit(e -> {
             Jogos match = e.getTableView().getItems().get(e.getTablePosition().getRow());
-            match.setTime1(e.getNewValue());
-            match.setTime1xTime2(match.getTime1().getNomeTime() + "x" + match.getTime2().getNomeTime());
+            if(e.getNewValue() != match.getTime2() && e.getNewValue() != e.getOldValue()) {
+                match.setTime1(e.getNewValue());
+                match.setTime1xTime2(match.getTime1().getNomeTime() + "x" + match.getTime2().getNomeTime());
+            }
             this.attTableMatch();
         });
         tTime2.setOnEditCommit(e -> {
             Jogos match = e.getTableView().getItems().get(e.getTablePosition().getRow());
-            match.setTime2(e.getNewValue());
-            match.setTime1xTime2(match.getTime1().getNomeTime() + "x" + match.getTime2().getNomeTime());
+            if(e.getNewValue() != match.getTime1() && e.getNewValue() != e.getOldValue()) {
+                match.setTime2(e.getNewValue());
+                match.setTime1xTime2(match.getTime1().getNomeTime() + "x" + match.getTime2().getNomeTime());
+            }
             this.attTableMatch();
         });
         tg1.setOnEditCommit(e -> {
@@ -264,11 +269,12 @@ public class EditTeam implements Initializable {
     }
 
     private void attTableMatch() {
-        for(Jogos j: App.matchs) {
+        tblViewJogos.getItems().clear();
+        for(int i = 0; i < App.matchs.size(); i++) {
+            Jogos j = App.matchs.get(i);
             if(j.getTime1() == t || j.getTime2() == t) {
                 tblViewJogos.getItems().add(j);
-                tblViewJogos.edit(tblViewJogos.getItems().size() - 1, tTime1);
-            }
+            } 
         }
     }
 

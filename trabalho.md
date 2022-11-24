@@ -4,7 +4,7 @@
 
 - Desenvolver um projeto em Java no Eclipse que controle a tabela de jogos da Copa.
 - O trabalho poderá ser feito individual ou em dupla.
-- Fica opcional o uso de uma interface gráfica usando JavaFX para acessar as funcionalidades. 
+- Fica opcional o uso de uma interface gráfica usando JavaFX para acessar as funcionalidades.
 - No AVA tem uma aula sobre a utilização do Java FX.
 - O sistema será composto pelas classes especificadas no Diagrama de Classes abaixo.
 - O sistema deverá permitir inclusão de objetos das Classes descritas abaixo.

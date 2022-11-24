@@ -72,7 +72,7 @@
                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                         </columnResizePolicy>
                         <columns>
-                            <TableColumn fx:id="txt" text="Local"/>
+                            <TableColumn fx:id="txt" text="T x T"/>
                             <TableColumn fx:id="tLocal" text="Local"/>
                             <TableColumn fx:id="tTime1" text="Time 1"/>
                             <TableColumn fx:id="tTime2" text="Time 2"/>

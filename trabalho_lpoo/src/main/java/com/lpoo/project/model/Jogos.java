@@ -61,6 +61,7 @@ public class Jogos {
             }
             
             this.gols = merge;
+            this.golsTime1 = 0;
         } else {
             ArrayList<Jogador> merge = new ArrayList<Jogador>();
             for(int i = 0; i < this.getGolsTime1(); i++) {
@@ -68,6 +69,7 @@ public class Jogos {
             }
             
             this.gols = merge;
+            this.golsTime2 = 0;
         }
     }
 
@@ -84,6 +86,7 @@ public class Jogos {
         rollbackResult();
         this.time1 = time1;
         clean(true);
+        GerarResultados();
     }
     public String getLocal() {
         return local;
@@ -121,7 +124,7 @@ public class Jogos {
             for(int i = 0; i < this.golsTime1; i++) {
                 try {
                     gols.add(this.gols.get(i));
-                } catch (Exception err){
+                } catch (Exception err) {
                     this.setGolsTime1(gols.size());
                     return gols;
                 }
@@ -140,6 +143,8 @@ public class Jogos {
     }
     
     void GerarResultados() {
+        System.out.println(this.golsTime1);
+        System.out.println(this.golsTime2);
         if(this.golsTime1 > this.golsTime2) {
             time1.vitoria();
             time2.derota();
@@ -163,12 +168,12 @@ public class Jogos {
     void rollbackResult() {
         if(tWin) {
             time1.setP(time1.getP() - 3);
-            time1.setE(time1.getV() - 1);
-            time2.setE(time2.getD() - 1);
+            time1.setV(time1.getV() - 1);
+            time2.setD(time2.getD() - 1);
         } else if(t2Win) {
             time2.setP(time2.getP() - 3);
-            time1.setE(time1.getD() - 1);
-            time2.setE(time2.getV() - 1);
+            time1.setD(time1.getD() - 1);
+            time2.setV(time2.getV() - 1);
         } else {
             time1.setP(time1.getP() - 1);
             time2.setP(time2.getP() - 1);
@@ -178,6 +183,7 @@ public class Jogos {
 
         time1.setJ(time1.getJ() - 1);
         time2.setJ(time2.getJ() - 1);
+        Evnts.att();
     }
 
     @Override

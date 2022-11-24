@@ -130,7 +130,7 @@ public class EditTeam implements Initializable {
         int toReturn[] = new int[arr.length];
 
         for(int i = 0; i < arr.length; i++) {
-            toReturn[i] = Integer.parseInt(arg01);
+            toReturn[i] = Integer.parseInt(arr[i]);
         }
 
         return toReturn;
@@ -140,7 +140,7 @@ public class EditTeam implements Initializable {
         String arr[] = arg01.split(" ");
         for(int i = 0; i < arr.length; i++) {
             try {
-                Integer.parseInt(arg01);
+                Integer.parseInt(arr[i]);
             }
             catch (Exception err) {
                 return false;

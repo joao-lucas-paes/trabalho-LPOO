@@ -2,21 +2,21 @@ package com.lpoo.project.model;
 
 public class Jogador extends Pessoa {
 
-    private int num;
+    private int numCamisa;
     
     public int getNum() {
-        return num;
+        return numCamisa;
     }
 
     public void setNum(int num) {
-        this.num = num;
+        this.numCamisa = num;
     }
 
 
     public Jogador(String nome, String cpf, String rua, String bairro, String cidade, int numero , String celular, String dataNascimento, int num, Time time) {
         super(nome, cpf, new Endereco(rua, bairro, cidade, numero), celular, dataNascimento);
 
-        this.num = num;
+        this.numCamisa = num;
 
         time.addComponent(this);
     }
@@ -24,13 +24,13 @@ public class Jogador extends Pessoa {
     public Jogador(String nome, String cpf, String rua, String bairro, String cidade, String cep, int numero , String celular, String dataNascimento, int num, Time time) {
         super(nome, cpf, new Endereco(rua, bairro, cidade, cep, numero), celular, dataNascimento);
 
-        this.num = num;
+        this.numCamisa = num;
 
         time.addComponent(this);
     }
 
     @Override
     public String toString() {
-        return this.getNome() + " - " + this.num;
+        return this.getNome() + " - " + this.numCamisa;
     }
 }

@@ -1,10 +1,5 @@
 package com.lpoo.project.model;
 
-import com.lpoo.project.controller.EditTeam;
-
-import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
-
 public class Jogador extends Pessoa {
 
     private int num;

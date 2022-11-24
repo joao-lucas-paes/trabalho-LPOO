@@ -1,5 +1,6 @@
 package com.lpoo.project.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Jogos {
@@ -16,6 +17,41 @@ public class Jogos {
     private Time time1, time2;
     private List<Jogador> gols;
 
+
+    public void changeGoals(Jogador[] jo, boolean time1) {
+        ArrayList<Jogador> j = new ArrayList<Jogador>();
+        for(Jogador jogador : jo)
+            j.add(jogador);
+        
+        if(time1) {
+            for(int i = this.getGolsTime1(); i < this.getGols().size(); i++) {
+                j.add(this.getGols().get(i));
+            }
+            this.gols = j;
+        } else {
+            ArrayList<Jogador> merge = new ArrayList<Jogador>();
+            for(int i = 0; i < this.getGolsTime1(); i++) {
+                merge.add(this.getGols().get(i));
+            }
+            for(Jogador jogador:j)
+                merge.add(jogador);
+            
+            this.gols = merge;
+        }
+    }
+
+    public Time getTime2() {
+        return time2;
+    }
+    public void setTime2(Time time2) {
+        this.time2 = time2;
+    }
+    public Time getTime1() {
+        return time1;
+    }
+    public void setTime1(Time time1) {
+        this.time1 = time1;
+    }
     public String getLocal() {
         return local;
     }
@@ -45,6 +81,19 @@ public class Jogos {
     }
     public void setGols(List<Jogador> gols) {
         this.gols = gols;
+    }
+    public ArrayList<Jogador> getJogGols(boolean time1) {
+        ArrayList<Jogador> gols = new ArrayList<Jogador>();
+        if(time1) {
+            for(int i = 0; i < this.golsTime1; i++) {
+                gols.add(this.gols.get(i));
+            }
+        } else {
+            for(int i = this.golsTime1; i < this.gols.size(); i++) {
+                gols.add(this.gols.get(i));
+            }
+        }
+        return gols;
     }
     
     void GerarResultados() {

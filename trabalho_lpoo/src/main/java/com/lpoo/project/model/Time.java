@@ -31,6 +31,34 @@ public class Time implements Comparable<Object> {
         j++;
         d++;
     }
+
+    public boolean has(int[] arr) {
+        for(int i: arr) {
+            boolean h = false;
+            for(int j = 0; j < this.listJogadores.size(); j++)
+                if (i == this.listJogadores.get(j).getNum()) {
+                    h = true;
+                    break;
+                }
+            if(!h) 
+                return false;
+            
+        }
+
+        return true;
+    }
+
+    public Jogador[] get(int[] arr) {
+        Jogador jogador[] = new Jogador[arr.length];
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = 0; j < this.listJogadores.size(); j++)
+                if (arr[i] == this.listJogadores.get(j).getNum()) {
+                    jogador[i] = this.listJogadores.get(j);
+                    break;
+                }
+        }
+        return jogador;
+    }
     
     public void addComponent(Jogador j) {
         this.listJogadores.add(j);

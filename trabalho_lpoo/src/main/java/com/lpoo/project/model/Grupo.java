@@ -19,6 +19,10 @@ public class Grupo {
         this.Times.sort(null);
     }
 
+    public ArrayList<Time> get() {
+        return this.Times;
+    }
+
     public Time get(int index) {
         return this.Times.get(index);
     }

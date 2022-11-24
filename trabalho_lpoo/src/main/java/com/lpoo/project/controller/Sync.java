@@ -10,7 +10,6 @@ import com.lpoo.project.view.NumField;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
@@ -55,7 +54,7 @@ public class Sync implements Initializable {
             int num = Integer.parseInt(grupo.getText()); // tenta transformar o numField em um numero
             int unTime = time.getSelectionModel().getSelectedIndex(); // da get do valor do time
             
-            if(num > 0 && num <= App.listGroup.size() && unTime != -1) {
+            if(num > 0 && num <= App.listGroup.size() && unTime != -1 && App.listGroup.get(num - 1).length() < 4) {
                 Time copy = App.UnsignedTeam.get(unTime); // recebe o valor do time
                 App.UnsignedTeam.remove(unTime); // retira ele da classificacao unsigned
                 App.listGroup.get(num - 1).add(copy); // adiciona no grupo

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.lpoo.project.model.Grupo;
+import com.lpoo.project.model.Jogos;
 import com.lpoo.project.model.Time;
 
 public class App extends Application {
@@ -18,6 +19,7 @@ public class App extends Application {
 
     static public ArrayList<Time> UnsignedTeam = new ArrayList<Time>();
     static public ArrayList<Grupo> listGroup = new ArrayList<Grupo>();
+    static public ArrayList<Jogos> matchs = new ArrayList<Jogos>();
     static public int tempI, tempJ; // metodo de comunicao global, visto que ao abrir um DialogBox eu nao tenho um meio de comunicacao preparada pela lib previamente
 
     @Override
